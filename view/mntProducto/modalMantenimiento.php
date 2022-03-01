@@ -24,6 +24,14 @@
                     
                     </div>
 
+                    <div class="form-group">
+                        
+                        <label class="form-label" for="prod_descripcion">Descripcion</label>
+
+                        <textarea rows="3" placeholder="Ingrese Descripcion" id="prod_descripcion" name="prod_descripcion"  class="form-control" required></textarea>
+                    
+                    </div>
+
                 </div>
                 
                 <div class="modal-footer">

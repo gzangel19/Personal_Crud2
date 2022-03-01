@@ -106,8 +106,25 @@ function guardarEditar(e){
     });
 }
 
-function editar(){
+function editar(prod_id){
 
+    $('#mdltitulo').html('Editar Registro');
+    
+    $('#modalmantenimiento').modal('show');
+
+    $.post('../../controller/ProductoController.php?opcion=mostrar',{prod_id:prod_id},function(data){
+
+        data = JSON.parse(data);
+
+        $('#prod_id').val(data.prod_id);
+
+        $('#prod_nombre').val(data.prod_nombre);
+
+        $('#prod_descripcion').val(data.prod_descripcion);
+
+    });
+
+    
 }
 
 function eliminar(prod_id){
@@ -137,23 +154,15 @@ function eliminar(prod_id){
       })
 }
 
-if(document.getElementById("modalmantenimiento")){
+$(document).on("click","#btnNuevoRegistro", function(){
+    $('#mdltitulo').html('Nuevo Registro');
+    $('#producto_form')[0].reset();
+    $('#prod_id').val('');
+    $('#modalmantenimiento').modal('show');
+});
 
-    var btnnuevo = document.getElementById("btnNuevoRegistro");
-    var btnCerrar= document.getElementById("btnCerrarModal");
-
-    btnnuevo.onclick = function() {
-        $('#mdltitulo').html('Nuevo Registro');
-        $('#modalmantenimiento').modal('show');
-        
-    }
-
-    btnCerrar.onclick = function() {
-        $('#modalmantenimiento').modal('hide');
-        
-    }
-
-}
-
+$(document).on("click","#btnCerrarModal", function(){
+    $('#modalmantenimiento').modal('hide');
+});
 
 init();

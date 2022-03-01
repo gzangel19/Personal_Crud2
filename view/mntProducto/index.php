@@ -48,6 +48,7 @@
                                         <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
+                                                <th>Descripcion</th>
                                                 <th>Fecha de Creacion</th>
                                                 <th></th>
                                             
@@ -61,6 +62,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nombre</th>
+                                            <th>Descripcion</th>
                                             <th>Fecha de Creacion</th>
                                             <th></th>
 
