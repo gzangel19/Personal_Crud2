@@ -1,1 +1,5 @@
-<h1> Login  </h1>
+<?php
+
+    include('view/mntProducto/index.php');
+
+?>

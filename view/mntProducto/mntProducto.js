@@ -1,7 +1,9 @@
 var tabla;
 
 function init(){
-
+    $('#producto_form').on('submit',function(e){
+        guardarEditar(e);
+    });
 }
 
 $(document).ready(function(){
@@ -79,6 +81,79 @@ $(document).ready(function(){
       }).DataTable();
 
 });
+
+function guardarEditar(e){
+    e.preventDefault();
+    var formData = new FormData($("#producto_form")[0]);
+    $.ajax({
+        url: "../../controller/ProductoController.php?opcion=editarGuardar",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(datos){
+
+            $('#producto_form')[0].reset();
+            $("#modalmantenimiento").modal('hide');
+            $('#productos_data').DataTable().ajax.reload();
+
+            swal.fire(
+                'Registro!',
+                'Correcto!',
+                'success'
+            )
+        }
+    });
+}
+
+function editar(){
+
+}
+
+function eliminar(prod_id){
+    Swal.fire({
+        title: 'Eliminar',
+        text: "Estas Seguro de Eliminar el Registro?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Eliminalo!'
+      }).then((result) => { 
+        if (result.isConfirmed) {
+            
+            $.post('../../controller/ProductoController.php?opcion=eliminar',{prod_id:prod_id},function(data){
+
+            });
+;
+            $('#productos_data').DataTable().ajax.reload();	
+
+          Swal.fire(
+            'Eliminado!',
+            'El Registro Fue Eliminado con Exito.',
+            'success'
+          )
+        }
+      })
+}
+
+if(document.getElementById("modalmantenimiento")){
+
+    var btnnuevo = document.getElementById("btnNuevoRegistro");
+    var btnCerrar= document.getElementById("btnCerrarModal");
+
+    btnnuevo.onclick = function() {
+        $('#mdltitulo').html('Nuevo Registro');
+        $('#modalmantenimiento').modal('show');
+        
+    }
+
+    btnCerrar.onclick = function() {
+        $('#modalmantenimiento').modal('hide');
+        
+    }
+
+}
 
 
 init();

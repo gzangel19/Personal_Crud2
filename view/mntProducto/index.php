@@ -15,7 +15,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     
     </head>
+
     <body class="sb-nav-fixed">
+        
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html"> Crud con PHP y JS </a>
@@ -41,6 +43,7 @@
                 </li>
             </ul>
         </nav>
+        
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -81,7 +84,9 @@
                             <div class="card-header">
                                     
                                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10"> <i class="fas fa-table me-1"></i> Mantenimiento de Productos </h6>
-                                
+                               
+                                <button class="btn btn-outline-primary btn-block mg-b-10" id="btnNuevoRegistro"> <i class="fas fa-plus"></i> Nuevo Registro </button>
+                            
                             </div>
                             
                             
@@ -150,16 +155,22 @@
             </div>
         </div>
         
+        <?php require_once("modalMantenimiento.php"); ?>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        
-        <script src="../../public/js/scripts.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js" defer></script>
         
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
+        <script src="../../public/js/scripts.js"></script>
+        
         <script type="text/javascript" src="mntProducto.js"> </script>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </body>
+
 </html>

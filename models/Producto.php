@@ -58,7 +58,7 @@
             
             parent::set_names();
 
-            $sql = "INSERT INTO tm_productos (prod_id, prod_nombre, prod_fecha, prod_fecha_mod, prod_fecha_del, prod_estado) VALUES (NULL, ?, now(), NULL, NULL, '1'), (NULL, '', '2022-02-20 21:57:08.000000', NULL, NULL,1);";
+            $sql="INSERT INTO tm_productos (prod_id, prod_nombre, prod_fecha, prod_fecha_mod, prod_fecha_del, prod_estado) VALUES (NULL, ?, now(), NULL, NULL, 1);";
 
             $sql = $conectar->prepare($sql);
 
@@ -70,7 +70,7 @@
         }
 
 
-        public function update_producto($prod_nom,$prod_id){
+        public function update_producto($prod_id,$prod_nom){
 
             $conectar = parent::Conexion();
             
